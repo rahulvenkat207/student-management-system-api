@@ -19,10 +19,7 @@ export class MarksController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  create(
-    @Body() createMarkDto: CreateMarkDto,
-    @Body('score') scoreOnly: number,
-  ) {
+  create(@Body() createMarkDto: CreateMarkDto) {
     return this.marksService.create(createMarkDto);
   }
 
@@ -36,9 +33,7 @@ export class MarksController {
   }
 
   @Get('student/:studentId/average')
-  getStudentAverage(
-    @Param('studentId') studentId: string,
-  ) {
+  getStudentAverage(@Param('studentId') studentId: string) {
     return this.marksService.getStudentAverage(studentId);
   }
 
@@ -48,12 +43,7 @@ export class MarksController {
     @Query('limit') limit: number,
     @Query('semester') semester: string,
   ) {
-    return this.marksService.getLeaderboard(
-      courseId,
-      limit,
-      semester,
-      false,
-    );
+    return this.marksService.getLeaderboard(courseId, limit, semester, false);
   }
 
   @Put(':studentId/:courseId')
