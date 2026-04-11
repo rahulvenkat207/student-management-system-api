@@ -26,11 +26,7 @@ export class CoursesController {
   }
 
   @Get()
-  findAll(
-    @Query() filters: FilterCourseDto,
-    @Query('credits') credits: number,
-    @Query('instructor') instructor: string,
-  ) {
+  findAll(@Query() filters: FilterCourseDto) {
     return this.coursesService.findAll(filters);
   }
 
@@ -55,10 +51,7 @@ export class CoursesController {
   }
 
   @Put(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateCourseDto: UpdateCourseDto,
-  ) {
+  update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
     return this.coursesService.update(id, updateCourseDto);
   }
 
