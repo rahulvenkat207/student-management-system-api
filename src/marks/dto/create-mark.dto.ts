@@ -1,7 +1,7 @@
 export class CreateMarkDto {
   studentId: string;
   courseId: string;
-  score: number; // 0-100
-  examType: string; // 'midterm' | 'final' | 'assignment'
+  score: number;
+  examType: string;
   semester: string;
 }
